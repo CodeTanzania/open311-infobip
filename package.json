@@ -1,0 +1,51 @@
+{
+  "name": "open311-infobip",
+  "version": "0.1.0",
+  "description": "sms transport for open311 messages using infobip",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test",
+    "integration": "npm link . && npm link open311-infobip && grunt integration"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CodeTanzania/open311-infobip.git"
+  },
+  "keywords": [
+    "open311",
+    "311",
+    "tanzania",
+    "sms",
+    "message",
+    "infobip",
+    "bipsms",
+    "notification"
+  ],
+  "author": {
+    "name": "lykmapipo",
+    "email": "lallyelias87@gmail.com",
+    "url": "https://github.com/lykmapipo"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodeTanzania/open311-infobip/issues"
+  },
+  "homepage": "https://github.com/CodeTanzania/open311-infobip",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "faker": "^4.1.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-mocha-test": "^0.13.2",
+    "jshint-stylish": "^2.2.1",
+    "mocha": "^3.4.2"
+  },
+  "dependencies": {
+    "async": "^2.4.1",
+    "bipsms": "^0.2.0",
+    "kue": "^0.11.5",
+    "lodash": "^4.17.4",
+    "open311-messages": "^0.5.2"
+  }
+}
