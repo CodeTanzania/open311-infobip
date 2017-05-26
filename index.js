@@ -133,13 +133,20 @@ exports.init = function () {
  * 
  */
 exports.queue = function (message) {
+  //ensure transport is initialize
+  exports.init();
+
+  //update message with transport details
   message.transport = exports.transport;
   message.queueName = exports.queueName;
+
   //ensure from is set-ed
   if (!message.from) {
     message.from = exports.options.from;
   }
+
   message.queue();
+
 };
 
 
@@ -156,8 +163,10 @@ exports.queue = function (message) {
 exports._send = function (message, done) {
 
   //prepare infobip compliant sms payload
+  const senderId = message.from ? message.from : exports.options.from;
+
   let payload = _.merge({}, {
-    from: message.from,
+    from: senderId,
     to: message.to,
     text: message.body
   });

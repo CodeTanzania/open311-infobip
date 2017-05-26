@@ -56,10 +56,24 @@ infobip.start();
 $ npm install
 ```
 
-* Then run test
+* Then run unit test
 ```sh
 $ npm test
 ```
+
+* To run integration test ensure your exported below environment variables
+```sh
+export INFOBIP_FROM="my value"
+export INFOBIP_USERNAME="my value"
+export INFOBIP_PASSWORD="my value"
+export INFOBIP_TEST_RECEIVER="my value"
+```
+
+Then
+```sh
+$ npm integration
+```
+
 
 ## Contribute
 It will be nice, if you open an issue first so that we can know what is going on, then, fork this repo and push in your ideas. Do not forget to add a bit of test(s) of what value you adding.
