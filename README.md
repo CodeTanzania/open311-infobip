@@ -69,9 +69,9 @@ export INFOBIP_PASSWORD="my value"
 export INFOBIP_TEST_RECEIVER="my value"
 ```
 
-Then
+Then run integration test
 ```sh
-$ npm integration
+$ npm run integration
 ```
 
 
