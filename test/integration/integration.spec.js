@@ -25,7 +25,7 @@ describe('infobip', function () {
     infobip.start();
   });
 
-  it.skip('should be able to queue message in fake mode', function (done) {
+  it('should be able to queue message in fake mode', function (done) {
 
     const details = {
       from: faker.phone.phoneNumber(),
@@ -117,7 +117,7 @@ describe('infobip', function () {
 
   });
 
-  it.skip('should be able to send message', function (done) {
+  it('should be able to send message', function (done) {
 
     const details = {
       to: process.env.INFOBIP_TEST_RECEIVER,
