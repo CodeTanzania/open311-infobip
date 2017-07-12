@@ -10,7 +10,6 @@
 const path = require('path');
 const expect = require('chai').expect;
 const mongoose = require('mongoose');
-const faker = require('faker');
 const infobip = require(path.join(__dirname, '..', '..'));
 infobip.options = {
   from: process.env.INFOBIP_FROM,
@@ -23,55 +22,6 @@ describe('infobip', function () {
 
   before(function () {
     infobip.start();
-  });
-
-  it('should be able to queue message in fake mode', function (done) {
-
-    const details = {
-      from: faker.phone.phoneNumber(),
-      to: faker.phone.phoneNumber(),
-      body: faker.lorem.sentence(),
-      options: {
-        fake: true
-      }
-    };
-
-    Message._queue.on('message:queue:error', function (error) {
-      done(error);
-    });
-
-    Message._queue.on('message:queue:success', function (message) {
-      expect(message).to.exist;
-      expect(message.from).to.be.equal(details.from);
-      expect(message.to).to.include(details.to);
-      expect(message.body).to.be.equal(details.body);
-      expect(message.result).to.not.exist;
-    });
-
-    infobip._queue.on('message:sent:error', function (error) {
-      done(error);
-    });
-
-    infobip._queue.on('message:sent:success', function (message) {
-      expect(message).to.exist;
-      expect(message.from).to.be.equal(details.from);
-      expect(message.to).to.be.include(details.to);
-      expect(message.body).to.be.equal(details.body);
-      expect(message.result).to.exist;
-    });
-
-    const message = new Message(details);
-
-    infobip.queue(message);
-
-    expect(message.transport).to.exist;
-    expect(message.transport).to.be.equal(infobip.transport);
-    expect(message.queueName).to.exist;
-    expect(message.queueName).to.be.equal(infobip.queueName);
-
-    //wait for queueing processes
-    setTimeout(done, 5000);
-
   });
 
   it('should be able to queue message in live mode', function (done) {

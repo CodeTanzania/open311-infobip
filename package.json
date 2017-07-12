@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/CodeTanzania/open311-infobip",
   "devDependencies": {
-    "chai": "^4.0.0",
+    "chai": "^4.1.0",
     "faker": "^4.1.0",
     "grunt": "^1.0.1",
     "grunt-contrib-jshint": "^1.1.0",
@@ -42,9 +42,9 @@
     "mocha": "^3.4.2"
   },
   "dependencies": {
-    "async": "^2.4.1",
+    "async": "^2.5.0",
     "bipsms": "^0.2.0",
-    "kue": "^0.11.5",
+    "kue": "^0.11.6",
     "lodash": "^4.17.4",
     "open311-messages": "^0.5.2"
   }
