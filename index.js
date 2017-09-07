@@ -92,10 +92,12 @@ exports.init = function () {
     throw new Error('Missing Infobip Account Password');
   }
 
+  //check for fake transport
+  const useFakeTransport = exports.options.fake;
+
   //initiate node Infobip sender
   //@see {@link https://github.com/lykmapipo/bipsms#usage}
   if (!exports.infobip) {
-    const useFakeTransport = exports.options.fake;
 
     //use fake transport
     if (useFakeTransport) {
@@ -111,7 +113,7 @@ exports.init = function () {
 
   //initialize worker processing queue
   //for internal usage
-  if (!exports._queue) {
+  if (!useFakeTransport && !exports._queue) {
     exports._queue = kue.createQueue(exports.options);
   }
 
