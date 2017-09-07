@@ -293,20 +293,23 @@ exports.start = function () {
   //ensure infobip is initialized
   exports.init();
 
-  //reference open311-message model
-  const Message = mongoose.model('Message');
+  //start worker for processing jobs
+  if (exports._queue) {
+    //reference open311-message model
+    const Message = mongoose.model('Message');
 
-  //register worker for processing message 
-  //and send it as sms
-  const { concurrency } = exports.options;
-  exports._queue.process(exports.queueName, concurrency, Message.process);
+    //register worker for processing message 
+    //and send it as sms
+    const { concurrency } = exports.options;
+    exports._queue.process(exports.queueName, concurrency, Message.process);
 
-  //listen for process termination
-  //and gracefull shutdown infobip worker queue
-  process.once('SIGTERM', function ( /*signal*/ ) {
-    exports._queue.shutdown(function ( /*error*/ ) {
-      process.exit(0);
+    //listen for process termination
+    //and gracefull shutdown infobip worker queue
+    process.once('SIGTERM', function ( /*signal*/ ) {
+      exports._queue.shutdown(function ( /*error*/ ) {
+        process.exit(0);
+      });
     });
-  });
+  }
 
 };
