@@ -32,6 +32,7 @@ exports.defaults = {
   timeout: 5000,
   concurrency: 10,
   fake: false,
+  sync: false,
   from: 'open311' //TODO hwy not use 311
 };
 
@@ -95,6 +96,9 @@ exports.init = function () {
   //check for fake transport
   const useFakeTransport = exports.options.fake;
 
+  //check for sync transport
+  const useSyncTransport = exports.options.sync;
+
   //initiate node Infobip sender
   //@see {@link https://github.com/lykmapipo/bipsms#usage}
   if (!exports.infobip) {
@@ -113,7 +117,7 @@ exports.init = function () {
 
   //initialize worker processing queue
   //for internal usage
-  if (!useFakeTransport && !exports._queue) {
+  if (!useFakeTransport && !useSyncTransport && !exports._queue) {
     exports._queue = kue.createQueue(exports.options);
   }
 

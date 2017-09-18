@@ -1,6 +1,6 @@
 {
   "name": "open311-infobip",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "sms transport for open311 messages using infobip",
   "main": "index.js",
   "scripts": {
@@ -39,7 +39,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-mocha-test": "^0.13.2",
     "jshint-stylish": "^2.2.1",
-    "mocha": "^3.5.0"
+    "mocha": "^3.5.3"
   },
   "dependencies": {
     "async": "^2.5.0",
