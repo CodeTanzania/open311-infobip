@@ -1,6 +1,6 @@
 {
   "name": "open311-infobip",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "sms transport for open311 messages using infobip",
   "main": "index.js",
   "scripts": {
@@ -46,6 +46,6 @@
     "bipsms": "^0.2.0",
     "kue": "^0.11.6",
     "lodash": "^4.17.4",
-    "open311-messages": "^0.5.3"
+    "open311-messages": "^0.5.4"
   }
 }
