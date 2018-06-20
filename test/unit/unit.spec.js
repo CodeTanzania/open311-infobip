@@ -6,7 +6,6 @@ const expect = require('chai').expect;
 const mongoose = require('mongoose');
 const faker = require('faker');
 const infobip = require(path.join(__dirname, '..', '..'));
-
 const Message = mongoose.model('Message');
 
 describe('infobip', function () {
